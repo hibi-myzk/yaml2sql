@@ -5,4 +5,3 @@ ruby '2.6.3'
 
 gem 'faker'
 gem 'gimei'
-gem 'sql-builder'

@@ -1,0 +1,14 @@
+data:
+  users:
+    user1:
+      id: "1"
+      name: "Test Ueer"
+      address: "fukuoka"
+      birthday: "1990-01-01"
+      score: 530000
+    user2:
+      id: "2"
+      name: "Test Ueer 2"
+      address: "tokyo"
+      birthday: "1992-02-02"
+      score: 16

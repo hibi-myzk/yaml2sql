@@ -1,0 +1,12 @@
+data:
+  posts:
+    post1:
+      id: "1"
+      user_id: 1
+      body: "Test 1"
+      posted_at: "2021-03-01"
+    post2:
+      id: "2"
+      user_id: 1
+      body: "Test 2"
+      posted_at: "2021-05-01"
