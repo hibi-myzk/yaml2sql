@@ -6,7 +6,7 @@
 $ git clone https://github.com/hibi-myzk/yaml2sql.git
 $ cd yaml2sql
 $ chmod +x ./yaml2sql.rb
-$ bundle install [--path vendor/bundle]
+$ bundle config set --local path 'vendor/bundle'
 ```
 
 ## Usage
