@@ -36,13 +36,14 @@ def fake(str)
 end
 
 def yaml_to_sql(yaml)
-  yaml['data'].each do |t, r|
+  yaml['data'].each do |t, records|
     table = t
-    columns = []
-    values = []
 
-    r.each do |n, fs|
-      fs.each do |c, v|
+    records.each do |name, fields|
+      columns = []
+      values = []
+
+      fields.each do |c, v|
         columns << c
 
         if v.is_a? String
