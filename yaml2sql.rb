@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
 require 'optparse'
 require 'yaml'
+require 'securerandom'
+require 'faker'
+require 'gimei'
 
 options = {}
 
@@ -16,6 +21,19 @@ OptionParser.new do |opts|
   end
 end.parse!
 
+def fake(str)
+  if str.start_with?("Faker.") || str.start_with?("Gimei.")
+    begin
+      eval str
+    rescue
+      str
+    end
+  elsif str =~ /\{UUID\}/
+    str.gsub "{UUID}", SecureRandom.uuid
+  else
+    str
+  end
+end
 
 def yaml_to_sql(yaml)
   table = ''
@@ -30,7 +48,7 @@ def yaml_to_sql(yaml)
         columns << c
 
         if v.is_a? String
-          values << "'" + v + "'"
+          values << "'" + fake(v) + "'"
         else
           values << v
         end

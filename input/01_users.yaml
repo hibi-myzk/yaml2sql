@@ -1,14 +1,20 @@
 data:
   users:
     user1:
-      id: "1"
+      id: 1
       name: "Test Ueer"
       address: "fukuoka"
       birthday: "1990-01-01"
       score: 530000
     user2:
-      id: "2"
+      id: 2
       name: "Test Ueer 2"
       address: "tokyo"
       birthday: "1992-02-02"
       score: 16
+    user3:
+      id: "{UUID}"
+      name: "Gimei.name.kanji"
+      address: "Gimei.address.kanji"
+      birthday: "Faker.Date.between(from: '1980-01-01', to: '2000-12-31')"
+      score: 0
