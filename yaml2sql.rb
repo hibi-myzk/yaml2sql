@@ -22,10 +22,11 @@ OptionParser.new do |opts|
 end.parse!
 
 def fake(str)
-  if str.start_with?("Faker.") || str.start_with?("Gimei.")
+  if str.start_with?("Faker") || str.start_with?("Gimei")
     begin
       eval str
-    rescue
+    rescue => e
+      p e
       str
     end
   elsif str =~ /\{UUID\}/
@@ -43,13 +44,19 @@ def yaml_to_sql(yaml)
       columns = []
       values = []
 
-      fields.each do |c, v|
+      fields.each do |c, val|
         columns << c
 
-        if v.is_a? String
-          values << "'" + fake(v) + "'"
+        if val.is_a? String
+          v = fake(val)
+
+          if v.is_a? String
+            values << "'" + fake(v) + "'"
+          else
+            values << v
+          end
         else
-          values << v
+          values << val
         end
       end
 

@@ -16,5 +16,5 @@ data:
       id: "{UUID}"
       name: "Gimei.name.kanji"
       address: "Gimei.address.kanji"
-      birthday: "Faker.Date.between(from: '1980-01-01', to: '2000-12-31')"
+      birthday: "Faker::Date.between(from: '1980-01-01', to: '2000-12-31')"
       score: 0
