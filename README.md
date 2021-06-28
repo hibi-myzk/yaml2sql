@@ -2,7 +2,7 @@
 
 ## Installation
 
-```ruby
+```sh
 $ git clone https://github.com/hibi-myzk/yaml2sql.git
 $ cd yaml2sql
 $ chmod +x ./yaml2sql.rb
@@ -32,6 +32,6 @@ reference:
 
 ### Generate SQL
 
-```ruby
+```sh
 $ ./yaml2sql -i /path/to/dir -o /path/to/dir
 ```
