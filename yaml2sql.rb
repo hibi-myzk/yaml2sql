@@ -36,13 +36,21 @@ def yaml_to_sql(yaml)
         end
       end
 
-      p "INSERT INTO #{table} (#{columns.join(', ')}) VALUES (#{values.join(', ')});"
+      yield "INSERT INTO #{table} (#{columns.join(', ')}) VALUES (#{values.join(', ')});"
     end
   end
 
 end
 
 Dir.glob("#{options[:input]}/*.yaml") do |yaml_file|
+  sql_file = yaml_file.sub(options[:input], options[:output])
+  sql_file = sql_file.sub('.yaml', '.sql')
+
   yaml = YAML.load_file(yaml_file)
-  yaml_to_sql(yaml)
+
+  File.open(sql_file, 'w') do |f|
+    yaml_to_sql(yaml) do |sql|
+      f.puts sql
+    end
+  end
 end
