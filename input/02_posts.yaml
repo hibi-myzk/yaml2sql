@@ -1,16 +1,16 @@
 data:
   posts:
     post1:
-      id: "1"
-      user_id: 1
-      body: "Test 1"
+      id: "{{UUID}}"
+      user_id: "{{user1.id}}"
+      body: "Faker::Lorem.sentence(word_count: 3)"
       Latitude: "Faker::Address.latitude"
       Longitude: "Faker::Address.longitude"
       posted_at: "2021-03-01"
     post2:
-      id: "2"
-      user_id: 1
-      body: "Test 2"
+      id: "{{UUID}}"
+      user_id: "{{user3.id}}"
+      body: "Faker::Lorem.sentence(word_count: 3)"
       Latitude: "Faker::Address.latitude"
       Longitude: "Faker::Address.longitude"
       posted_at: "2021-05-01"
